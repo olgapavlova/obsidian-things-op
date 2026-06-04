@@ -1,149 +1,336 @@
-/*───────────────────────────────────────────────────────
-THINGS
-Version 2.2.3
-Created by @colineckert
-
-Readme:
-https://github.com/colineckert/obsidian-things
-
-Support my work:
-https://www.buymeacoffee.com/colineckert
-────────────────────────────────────────────────────── */
-
-/* ─────────────────────────────────────────────────── */
-/* Main Theme Styling */
-/* ─────────────────────────────────────────────────── */
-
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Версия темы Things • https://github.com/colineckert/obsidian-things
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ 
 @charset "UTF-8";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Ц В Е Т А
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 body {
-  /* Colors */
-  --base-h: 212; /* Base hue */
-  --base-s: 15%; /* Base saturation */
-  --base-d: 13%; /* Base lightness Dark Mode  - 0 is black */
-  --base-l: 97%; /* Base lightness Light Mode  - 100 is white */
-  --accent-h: 215; /* Accent hue */
-  --accent-s: 75%; /* Accent saturation */
-  --accent-d: 70%; /* Accent lightness Dark Mode */
-  --accent-l: 60%; /* Accent lightness Light Mode */
+  /* Базовые цвета палитры */
+  --red:       #cb0008;
+  --red-rgb:     203, 0, 8;
+  --pink:      #fb372d;
+  --pink-rgb:    251, 55, 45;
+  --orange:    #d6670e;
+  --orange-rgb:  214, 103, 14;
+  --yellow:    #f3ac06;
+  --yellow-rgb:  243, 172, 6;
+  --green:     #9a9a00;
+  --green-rgb:   154, 154, 0;
+  --cyan:      #08849b;
+  --cyan-rgb:    8, 132, 155;
+  --blue:      #0a6fc3;
+  --blue-rgb:    10, 111, 195;
+  --violet:    #7c33de;
+  --violet-rgb:  124, 51, 222;
+  --purple:      var(--violet);
+  --purple-rgb:  var(--violet-rgb);
+  --magenta:   #a60c8b;
+  --magenta-rgb: 166, 12, 139;
+  /* вариант normal из базовой палитры */
 
-  --blue: #2e80f2;
-  --pink: #ff82b2;
-  --green: #3eb4bf;
-  --yellow: #e5b567;
-  --orange: #e87d3e;
-  --red: #e83e3e;
-  --purple: #9e86c8;
+  /* Градиент */
+  --g-00: #000000;
+  --g-01: #110f00;
+  --g-02: #2b291f;
+  --g-03: #3c3a2f;
+  --g-04: #4b493d;
+  --g-05: #59584b;
+  --g-06: #676557;
+  --g-07: #747263;
+  --g-08: #817f6f;
+  --g-09: #8d8b7b;
+  --g-10: #999786;
+  --g-11: #a5a391;
+  --g-12: #b0ae9c;
+  --g-13: #bcb9a7;
+  --g-14: #c7c5b2;
+  --g-15: #d2d0bc;
+  --g-16: #dedbc6;
+  --g-17: #e8e6d1;
+  --g-18: #f3f0db;
+  --g-19: #fefbe5;
+  --g-20: #ffffff;
 
-  --h1-color: var(--text-normal);
-  --h2-color: var(--text-normal);
-  --h3-color: var(--blue);
-  --h4-color: var(--yellow);
-  --h5-color: var(--red);
-  --h6-color: var(--text-muted);
+  /* Именованные цвета градиента */
+  --black:   var(--g-02);
+  --normal:  var(--g-04);
+  --gray:    var(--g-08);
+  --light:   var(--g-12);
+  --white:   var(--g-19);
+  /* 5 из 20 цветов градиента базовой палитры */
 
-  --strong-color: var(--pink);
-  --em-color: var(--pink);
-  --quote-color: var(--green);
+}
 
-  --tag-background-color-l: #bde1d3;
-  --tag-font-color-l: #1d694b;
-  --tag-background-color-d: #1d694b;
-  --tag-font-color-d: #ffffff;
 
-  --highlight-background-color--normal: hsl(50deg 100% 50% / 15%) !important;
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * З А Г О Л О В К И
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+body {
+  /* Цвета */
+  --h1-color: var(--green);
+  --h2-color: var(--normal);
+  --h3-color: var(--normal);
+  --h4-color: var(--normal);
+  --h5-color: var(--normal);
+  --h6-color: var(--normal);
+  /* пока не вижу смысла в раскрашивании заголовков */
+
+  /* Размеры */
+  --h1-size: 4rem;
+  --h2-size: 2.8rem;
+  --h3-size: 2.4rem;
+  --h4-size: 1.8rem;
+  --h5-size: 1.6rem;
+  --h6-size: 1rem;
+  /* пропорции для различимости, не для красоты */
+
+}
+
+
+/* h1 */
+.markdown-preview-view h1,
+.markdown-rendered h1 {
+  border-top: 32px groove var(--h1-color);
+  border-bottom: 80px ridge var(--h1-color);
+  border-radius: var(--radius-l);
+  width: 80%;
+
+  padding-top: var(--h1-size);
+  padding-bottom: var(--h6-size);
+  line-height: 1;
+  letter-spacing: 0.12rem;
+  font-size: var(--h1-size);
+  font-weight: 100;
+}
+
+/* h2 */
+.markdown-preview-view h2,
+.markdown-rendered h2 {
+  padding-top: var(--h2-size);
+  padding-bottom: 0;
+  line-height: 1;
+  letter-spacing: 0.08rem;
+  font-size: var(--h2-size);
+  font-weight: 900;
+}
+
+/* h3 */
+.markdown-preview-view h3,
+.markdown-rendered h3 {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  letter-spacing: 0.12rem;
+  font-size: var(--h3-size);
+  font-weight: 100;
+}
+
+/* h4 */
+.markdown-preview-view h4,
+.markdown-rendered h4 {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  letter-spacing: 0.08rem;
+  font-size: var(--h4-size);
+  font-weight: 900;
+}
+
+/* h5 */
+.markdown-preview-view h5,
+.markdown-rendered h5 {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  letter-spacing: 0.12rem;
+  font-size: var(--h5-size);
+  font-weight: 100;
+}
+
+/* h6 */
+.markdown-preview-view h6,
+.markdown-rendered h6 {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  letter-spacing: 0.08rem;
+  font-size: var(--h6-size);
+  font-weight: 400;
+}
+
+/* При редактировании все заголовки выглядят одинаково */
+.HyperMD-header.HyperMD-header-1.cm-line,
+.HyperMD-header.HyperMD-header-2.cm-line,
+.HyperMD-header.HyperMD-header-3.cm-line,
+.HyperMD-header.HyperMD-header-4.cm-line,
+.HyperMD-header.HyperMD-header-5.cm-line,
+.HyperMD-header.HyperMD-header-6.cm-line {
+  color: var(--black);
+  font-size: var(--h6-size);
+  font-weight: bold;
+}
+
+/* Heading small-caps */
+/* ? Когда это используется ? */
+body.h1-small-caps h1,
+body.h1-small-caps .HyperMD-header.HyperMD-header-1.cm-line,
+body.h2-small-caps h2,
+body.h2-small-caps .HyperMD-header.HyperMD-header-2.cm-line,
+body.h3-small-caps h3,
+body.h3-small-caps .HyperMD-header.HyperMD-header-3.cm-line,
+body.h4-small-caps h4,
+body.h4-small-caps .HyperMD-header.HyperMD-header-4.cm-line,
+body.h5-small-caps h5,
+body.h5-small-caps .HyperMD-header.HyperMD-header-5.cm-line,
+body.h6-small-caps h6,
+body.h6-small-caps .HyperMD-header.HyperMD-header-6.cm-line {
+  font-variant-caps: small-caps;
+}
+
+/* Подчёркивание заголовков (h3–h6) */
+/* ? Когда это используется ? */
+body.h3-underline h3,
+body.h3-underline .HyperMD-header.HyperMD-header-3.cm-line,
+body.h4-underline h4,
+body.h4-underline .HyperMD-header.HyperMD-header-4.cm-line,
+body.h5-underline h5,
+body.h5-underline .HyperMD-header.HyperMD-header-5.cm-line,
+body.h6-underline h6,
+body.h6-underline .HyperMD-header.HyperMD-header-6.cm-line {
+  border-bottom: 2px solid var(--background-modifier-border);
+  width: 100%;
+  padding-bottom: 2px;
+  margin-bottom: 8px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+
+  /* Акцентный цвет? */
+  --accent-h: 54; /* Accent hue */
+  --accent-s: 11%; /* Accent saturation */
+  --accent-l: 65%; /* Accent lightness Light Mode */
+
+  /* Жирный, италик, цитата */
+  --strong-color: var(--black);
+  --em-color:     var(--black);
+  --quote-color:  var(--black);
+
+  /* Подсветка */
+  /* TODO Что это? */
+  --highlight-background-color--normal:   hsl(50deg 100% 50% / 15%) !important;
   --highlight-background-color-underline: hsl(50deg 100% 50% / 100%) !important;
-  --highlight-background-color--active: hsl(50deg 100% 50% / 20%) !important;
+  --highlight-background-color--active:   hsl(50deg 100% 50% / 20%) !important;
 
-  --progress-color-1: #ad5758;
-  --progress-color-2: #b87f4c;
-  --progress-color-3: #d2b874;
-  --progress-color-4: #b0c07e;
-  --progress-color-5: #768399;
+  /* Прогресс */
+  /* TODO Что это? */
+  --progress-color-1: #9d0006;
+  --progress-color-2: #ac5209;
+  --progress-color-3: #cc9105;
+  --progress-color-4: #767616;
+  --progress-color-5: #066677;
 
-  /* Font families */
-  --font-text-theme:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Ubuntu,
-    sans-serif;
-  --font-editor-theme:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Ubuntu,
-    sans-serif;
-  --font-monospace-theme:
-    "JetBrains Mono", "Fira Code", Menlo, SFMono-Regular, Consolas,
-    "Roboto Mono", monospace;
-  --font-interface-theme:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Ubuntu,
-    sans-serif;
-  --font-editor:
-    var(--font-editor-override), var(--font-text-override),
-    var(--font-editor-theme);
+  /* Шрифты */
+  --font-text-theme:      "Adwaita Sans", sans-serif;
+  --font-editor-theme:    "Adwaita Sans", sans-serif;
+  --font-monospace-theme: "MesloLGS Nerd Font Mono", monospace;
+  --font-interface-theme: "Adwaita Sans", sans-serif;
+  --font-editor:          "Adwaita Sans", sans-serif;
 
-  --h1-size: 1.7rem;
-  --h2-size: 1.5rem;
-  --h3-size: 1.2rem;
-  --h4-size: 1.1rem;
-  --h5-size: 1rem;
-  --h6-size: 0.9rem;
+  /* Скругления */
+  --radius-s:   4px;
+  --radius-m:   8px;
+  --radius-l:  12px;
+  --radius-xl: 16px;
 
-  /* Misc */
+  /* Межстрочные расстояния */
+  --line-width: 40rem;
+  --line-height: 1.5;
+  --line-width-adaptive: var(--line-width);
+  --line-width-wide: calc(var(--line-width) + 12.5%);
+
+  /* Оформление кода */
+  --code-background-l: var(--white);
+  --code-background-d: var(--black);
+  --code-block-background-l: var(--white);
+  --code-block-background-d: var(--black);
+
+  /* Цитаты */
+  --quote-background: transparent;
+
+   /* Всякое разное */
   --checkbox-radius: 30%;
   --link-external-decoration: underline;
   --link-decoration: underline;
-
-  /* -------- */
-  --radius-s: 4px;
-  --radius-m: 8px;
-  --radius-l: 10px;
-  --radius-xl: 16px;
-
-  --line-width: 40rem;
-  --line-height: 1.5;
   --max-width: 90%;
   --max-col-width: 18em;
   --icon-muted: 0.5;
   --nested-padding: 1.1em;
   --folding-offset: 10px;
-
-  --line-width-adaptive: var(--line-width);
-  --line-width-wide: calc(var(--line-width) + 12.5%);
-
-  --code-background-l: #eceef1;
-  --code-background-d: #303540;
-  --code-block-background-l: #f0f2f5;
-  --code-block-background-d: #282c34;
-  --quote-background: transparent;
 }
 
-/* COLOR SCHEMES
-────────────────────────────────────────────────────── */
 
+/* Светлая тема */
 .theme-light,
 body.theme-light.is-mobile {
   color-scheme: light;
   --highlight-mix-blend-mode: darken;
   --mono-rgb-0: 255, 255, 255;
   --mono-rgb-100: 0, 0, 0;
-  --color-red-rgb: 228, 55, 75;
-  --color-red: #e4374b;
-  --color-green-rgb: 12, 181, 79;
-  --color-green: #0cb54f;
-  --color-orange: #d96c00;
-  --color-yellow: #bd8e37;
-  --color-cyan: #2db7b5;
-  --color-blue: #086ddd;
-  --color-purple: #876be0;
-  --color-pink: #c32b74;
-  --color-base-00: #ffffff;
-  --color-base-05: #fcfcfc;
-  --color-base-10: #f6f7f8; /* code blocks */
-  --color-base-20: #f6f7f8;
-  --color-base-25: #f0f0f0;
-  --color-base-30: #ebedf0; /* soften dividing lines */
-  --color-base-35: #d4d4d4;
-  --color-base-40: #bdbdbd;
-  --color-base-50: #ababab;
-  --color-base-60: #707070;
-  --color-base-70: #5a5a5a;
-  --color-base-100: #222222;
+
+
+  /* Условные цвета темы */
+  --color-red:        var(--red);
+  --color-red-rgb:    var(--red-rgb);
+  --color-orange:     var(--orange);
+  --color-orange-rgb: var(--orange-rgb);
+  --color-yellow:     var(--yellow);
+  --color-yellow-rgb: var(--yellow-rgb);
+  --color-green:      var(--green);
+  --color-green-rgb:  var(--green-rgb);
+  --color-cyan:       var(--cyan);
+  --color-cyan-rgb:   var(--cyan-rgb);
+  --color-blue:       var(--blue);
+  --color-blue-rgb:   var(--blue-rgb);
+  --color-purple:     var(--purple);
+  --color-purple-rgb: var(--purple-rgb);
+  --color-pink:       var(--pink);
+  --color-pink-rgb:   var(--pink-rgb);
+  /* в этом случае совпадают с реальными цветами */
+
+  /* Градиент темы */
+  --color-base-00: var(--g-20);
+  --color-base-05: var(--g-19);
+  --color-base-10: var(--g-18); /* блоки кода по умолчанию */
+  --color-base-20: var(--g-16);
+  --color-base-25: var(--g-15);
+  --color-base-30: var(--g-14); /* линии-разделители */
+  --color-base-35: var(--g-13);
+  --color-base-40: var(--g-12);
+  --color-base-50: var(--g-11);
+  --color-base-60: var(--g-09);
+  --color-base-70: var(--g-07);
+  --color-base-80: var(--g-05);
+  --color-base-90: var(--g-03);
+  --color-base-100: var(--g-01);
+  /* не все цвета градиента палитры сюда вошли */
+
   --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
   --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
   --color-accent-1: hsl(
@@ -156,8 +343,12 @@ body.theme-light.is-mobile {
     var(--accent-s),
     calc(var(--accent-l) + 5%)
   );
-  --background-modifier-hover: #e2e5e9;
-  --background-secondary-alt: var(--color-base-05);
+
+
+  /* Элементы интерфейса */
+  --background-modifier-hover: var(--yellow);
+  --background-secondary:      var(--g-19);
+  --background-secondary-alt:  var(--g-19);
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
   --background-modifier-cover: rgba(220, 220, 220, 0.4);
   --text-highlight-bg-l: rgba(255, 208, 0, 0.4);
@@ -178,153 +369,55 @@ body.theme-light.is-mobile {
     0px 1.8px 7.3px rgba(0, 0, 0, 0.071), 0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
     0px 30px 90px rgba(0, 0, 0, 0.2);
 
-  --tag-background: var(--tag-background-color-l);
-  --tag-color: var(--tag-font-color-l);
 
-  /* --text-normal: hsl(var(--base-h), var(--base-s), calc(var(--base-l) - 80%)); */
-  --text-muted: hsl(
-    var(--base-h),
-    calc(var(--base-s) - 5%),
-    calc(var(--base-l) - 60%)
-  );
-  --text-faint: hsl(
-    var(--base-h),
-    calc(var(--base-s) - 5%),
-    calc(var(--base-l) - 30%)
-  );
-  --text-formatted: hsl(
-    var(--base-h),
-    calc(var(--base-s) - 5%),
-    calc(var(--base-l) - 35%)
-  );
-  --text-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --text-accent-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 10%)
-  );
 
-  --titlebar-background: var(--color-base-10);
-  --titlebar-background-focused: var(--color-base-25);
 
-  --atom-gray-1: #383a42;
-  --atom-gray-2: #383a42;
-  --atom-red: #e75545;
-  --atom-green: #4ea24c;
-  --atom-blue: #3d74f6;
-  --atom-purple: #a625a4;
-  --atom-aqua: #0084bc;
-  --atom-yellow: #e35649;
-  --atom-orange: #986800;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Т Е Г И
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+  --tag-background:   var(--cyan);
+  --tag-color:        var(--white);
+  --tag-radius:       var(--radius-xl);
+  --tag-corner-shape: squircle;
+  --tag-weight:       400;
+  --tag-size:         1rem;
+  --tag-padding-x:    0.8rem;
+  --tag-padding-y:    0.2rem;
+
+
+
+
+
+
+
+
+  /* ? Разные варианты текста */
+  --text-normal:       var(--black);
+  --text-muted:        var(--normal);
+  --text-faint:        var(--light);
+  --text-formatted:    var(--gray);
+  --text-accent:       var(--g-05);
+  --text-accent-hover: var(--g-08);
+
+  /* ? Что-то интерфейсное? */
+  --titlebar-background:         var(--color-base-05);
+  --titlebar-background-focused: var(--color-base-05);
+
+  /* ? Что это за цвета? */
+  --atom-gray-1: var(--gray);
+  --atom-gray-2: var(--gray);
+  --atom-red:    var(--red);
+  --atom-green:  var(--green);
+  --atom-blue:   var(--blue);
+  --atom-purple: var(--purple);
+  --atom-aqua:   var(--cyan);
+  --atom-yellow: var(--yellow);
+  --atom-orange: var(--orange);
 }
 
-.theme-dark,
-body.theme-dark.is-mobile {
-  color-scheme: dark;
-  --highlight-mix-blend-mode: lighten;
-  --mono-rgb-0: 0, 0, 0;
-  --mono-rgb-100: 255, 255, 255;
-  --color-red-rgb: 251, 70, 76;
-  --color-red: #fb464c;
-  --color-green-rgb: 68, 207, 110;
-  --color-green: #44cf6e;
-  --color-orange: #e9973f;
-  --color-yellow: #e0de71;
-  --color-cyan: #53dfdd;
-  --color-blue: #027aff;
-  --color-purple: #a882ff;
-  --color-pink: #fa99cd;
-  --color-base-00: #1c2127; /* main editor window */
-  --color-base-10: #282c34; /* code blocks */
-  --color-base-20: #181c20; /* top unselected unfocused nav */
-  --color-base-25: #2c313c;
-  --color-base-30: #35393e;
-  --color-base-35: #3f3f3f;
-  --color-base-40: #555;
-  --color-base-50: #666; /* unfocused text */
-  --color-base-60: #999;
-  --color-base-70: #bababa;
-  --color-base-100: #dadada;
-  --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
-  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --color-accent-1: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 3.8%)
-  );
-  --color-accent-2: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 3.8%)
-  );
-  --titlebar-background: var(--color-base-10);
-  --titlebar-background-focused: var(--color-base-20);
-  --background-modifier-form-field: var(--color-base-25);
-  --background-secondary-alt: var(--color-base-30);
-  --interactive-normal: var(--color-base-30);
-  --interactive-hover: var(--color-base-35);
-  --text-highlight-bg-d: rgba(255, 208, 0, 0.4);
-  --text-highlight-bg: var(--text-highlight-bg-d);
-  --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
-  --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
-  --input-shadow:
-    inset 0 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.09),
-    0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 1px 1.5px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 transparent;
-  --input-shadow-hover:
-    inset 0 0.5px 1px 0.5px rgba(255, 255, 255, 0.16),
-    0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 1.5px 0 rgba(0, 0, 0, 0.2),
-    0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 0 0 0 transparent;
-  --shadow-s:
-    0px 1px 2px rgba(0, 0, 0, 0.121), 0px 3.4px 6.7px rgba(0, 0, 0, 0.179),
-    0px 15px 30px rgba(0, 0, 0, 0.3);
-  --shadow-l:
-    0px 1.8px 7.3px rgba(0, 0, 0, 0.071), 0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
-    0px 30px 90px rgba(0, 0, 0, 0.2);
-
-  --tag-background: var(--tag-background-color-d);
-  --tag-color: var(--tag-font-color-d);
-
-  --text-muted: hsl(var(--base-h), var(--base-s), calc(var(--base-d) + 65%));
-  --text-faint: hsl(var(--base-h), var(--base-s), calc(var(--base-d) + 30%));
-  --text-formatted: hsl(
-    var(--base-h),
-    var(--base-s),
-    calc(var(--base-d) + 50%)
-  );
-
-  --text-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-d));
-  --text-accent-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-d) + 12%)
-  );
-
-  --atom-gray-1: #5c6370;
-  --atom-gray-2: #abb2bf;
-  --atom-red: #e06c75;
-  --atom-orange: #d19a66;
-  --atom-green: #98c379;
-  --atom-aqua: #56b6c2;
-  --atom-purple: #c678dd;
-  --atom-blue: #61afef;
-  --atom-yellow: #e5c07b;
-}
-
-body.is-mobile.theme-dark.mobile-black-background {
-  --color-base-00: black;
-}
-
-/* Make exported PDFs render correctly */
-@media print {
-  .theme-dark {
-    --highlight-mix-blend-mode: darken;
-    --color-base-30: #ebedf0;
-    --h1-color: var(--color-base-00);
-  }
-}
-
-/* Breadcrumb: hidden by default, visible on hover */
+/* Хлебные крошки (видны при наведении) */
 .view-header .view-header-title-container {
   opacity: 0;
   transition: opacity 200ms ease;
@@ -333,129 +426,23 @@ body.is-mobile.theme-dark.mobile-black-background {
   opacity: 1;
 }
 
-/* H2 styling */
-.markdown-preview-view h2,
-.markdown-rendered h2,
-.HyperMD-header.HyperMD-header-2.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
-body.h2-no-underline .markdown-preview-view h2,
-body.h2-no-underline .markdown-rendered h2,
-body.h2-no-underline .HyperMD-header.HyperMD-header-2.cm-line {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: revert;
-}
 
-/* Heading small-caps */
-body.h1-small-caps h1,
-body.h1-small-caps .HyperMD-header.HyperMD-header-1.cm-line {
-  font-variant-caps: small-caps;
-}
-body.h2-small-caps h2,
-body.h2-small-caps .HyperMD-header.HyperMD-header-2.cm-line {
-  font-variant-caps: small-caps;
-}
-body.h3-small-caps h3,
-body.h3-small-caps .HyperMD-header.HyperMD-header-3.cm-line {
-  font-variant-caps: small-caps;
-}
-body.h4-small-caps h4,
-body.h4-small-caps .HyperMD-header.HyperMD-header-4.cm-line {
-  font-variant-caps: small-caps;
-}
-body.h5-small-caps h5,
-body.h5-small-caps .HyperMD-header.HyperMD-header-5.cm-line {
-  font-variant-caps: small-caps;
-}
-body.h6-small-caps h6,
-body.h6-small-caps .HyperMD-header.HyperMD-header-6.cm-line {
-  font-variant-caps: small-caps;
-}
 
-/* Heading underlines (H1, H3-H6) */
-body.h1-underline h1,
-body.h1-underline .HyperMD-header.HyperMD-header-1.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
-body.h3-underline h3,
-body.h3-underline .HyperMD-header.HyperMD-header-3.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
-body.h4-underline h4,
-body.h4-underline .HyperMD-header.HyperMD-header-4.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
-body.h5-underline h5,
-body.h5-underline .HyperMD-header.HyperMD-header-5.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
-body.h6-underline h6,
-body.h6-underline .HyperMD-header.HyperMD-header-6.cm-line {
-  border-bottom: 2px solid var(--background-modifier-border);
-  width: 100%;
-  padding-bottom: 2px;
-  margin-bottom: 8px !important;
-}
 
-/* Heading underline color matches heading color */
-body.heading-underline-color.h1-underline h1,
-body.heading-underline-color.h1-underline
-  .HyperMD-header.HyperMD-header-1.cm-line {
-  border-bottom-color: var(--h1-color);
-}
-body.heading-underline-color:not(.h2-no-underline) .markdown-preview-view h2,
-body.heading-underline-color:not(.h2-no-underline) .markdown-rendered h2,
-body.heading-underline-color:not(.h2-no-underline)
-  .HyperMD-header.HyperMD-header-2.cm-line {
-  border-bottom-color: var(--h2-color);
-}
-body.heading-underline-color.h3-underline h3,
-body.heading-underline-color.h3-underline
-  .HyperMD-header.HyperMD-header-3.cm-line {
-  border-bottom-color: var(--h3-color);
-}
-body.heading-underline-color.h4-underline h4,
-body.heading-underline-color.h4-underline
-  .HyperMD-header.HyperMD-header-4.cm-line {
-  border-bottom-color: var(--h4-color);
-}
-body.heading-underline-color.h5-underline h5,
-body.heading-underline-color.h5-underline
-  .HyperMD-header.HyperMD-header-5.cm-line {
-  border-bottom-color: var(--h5-color);
-}
-body.heading-underline-color.h6-underline h6,
-body.heading-underline-color.h6-underline
-  .HyperMD-header.HyperMD-header-6.cm-line {
-  border-bottom-color: var(--h6-color);
-}
 
-/* Hashtags font */
+
+/* Шрифт тега */
 .markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta,
 .markdown-source-view.mod-cm5 .cm-hashtag.cm-meta {
   font-family: var(--font-text-theme);
 }
 
-/* Blockquote */
+
+
+
+/* Цитата */
 body:not(.default-font-color) .markdown-preview-view blockquote,
 body:not(.default-font-color) span.cm-quote.cm-quote-1 {
-  font-style: italic;
   color: var(--quote-color);
 }
 body .markdown-preview-view blockquote {
@@ -464,6 +451,9 @@ body .markdown-preview-view blockquote {
 body .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   background-color: var(--quote-background);
 }
+
+
+
 
 /* Bold font */
 body:not(.default-font-color) strong,
@@ -483,6 +473,9 @@ body:not(.default-font-color) mark em {
   color: var(--text-normal);
 }
 
+
+
+
 /* Fancy highlight */
 body.fancy-highlight span.cm-highlight,
 body.fancy-highlight .markdown-preview-view mark,
@@ -498,6 +491,9 @@ body.fancy-highlight span.search-result-file-matched-text {
   background-color: var(--highlight-text-color--active) !important;
 }
 
+
+
+
 /* Markdown formatting */
 .cm-formatting-strong,
 .cm-formatting-em,
@@ -507,375 +503,26 @@ body.fancy-highlight span.search-result-file-matched-text {
   letter-spacing: -0.02em;
 }
 
-/* Completed checkboxes */
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * C H E C K B O X E S
+ * Основа — тема Minimal:
+ * https://minimal.guide/Block+types/Checklists#Checkbox+styling
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Обычные галочки закрытых задач */
 .markdown-preview-view ul > li.task-list-item.is-checked,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="+"],
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"],
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="M"] {
   text-decoration: none;
   color: var(--text-faint);
 }
-
-/* Image card */
-img {
-  border-radius: 4px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.theme-dark .modal-container .suggestion-item.is-selected {
-  background: var(--color-accent);
-}
-
-/* Focus active line */
-body.active-line .cm-active:not(.HyperMD-header, .HyperMD-codeblock)::before,
-body.active-line .cm-active.HyperMD-quote::before {
-  content: "";
-  height: 100%;
-  position: absolute;
-  left: -1.125em;
-  border-left: 3px solid var(--color-accent);
-  border-radius: 10px 0 0 10px;
-  opacity: 0.85;
-}
-
-/* Inline code background (separate from block code) */
-.theme-light .markdown-rendered code:not(pre code),
-.theme-light .markdown-preview-view code:not(pre code) {
-  background-color: var(--code-background-l);
-}
-.theme-dark .markdown-rendered code:not(pre code),
-.theme-dark .markdown-preview-view code:not(pre code) {
-  background-color: var(--code-background-d);
-}
-.theme-light .cm-s-obsidian span.cm-inline-code {
-  background-color: var(--code-background-l);
-}
-.theme-dark .cm-s-obsidian span.cm-inline-code {
-  background-color: var(--code-background-d);
-}
-
-/* Copy button stays fixed at top-right while code scrolls horizontally */
-.markdown-reading-view .el-pre {
-  position: relative;
-}
-.markdown-reading-view .el-pre pre {
-  position: static;
-  overflow-x: auto;
-  white-space: pre;
-}
-.markdown-reading-view .el-pre pre code {
-  white-space: pre;
-}
-.markdown-reading-view .el-pre .copy-code-button {
-  position: absolute;
-}
-
-/* Code block background (separate from inline code) */
-.theme-light .markdown-preview-view pre:not(.frontmatter) {
-  background-color: var(--code-block-background-l);
-}
-.theme-dark .markdown-preview-view pre:not(.frontmatter) {
-  background-color: var(--code-block-background-d);
-}
-.theme-light .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: var(--code-block-background-l);
-}
-.theme-dark .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: var(--code-block-background-d);
-}
-
-/* Fancy code blocks */
-.cm-inline-code,
-.cm-s-obsidian .HyperMD-codeblock,
-.markdown-preview-view.markdown-preview-view :is(pre, code) {
-  --codeblock-border: var(--color-base-30);
-  --codeblock-roundness: var(--radius-s);
-  --code-block-alt-bg: var(--color-base-30);
-  --slight-code-roundish: var(--radius-xs);
-}
-
-body.fancy-code .cm-s-obsidian .HyperMD-codeblock {
-  line-height: 1.4em;
-}
-
-body.fancy-code .HyperMD-codeblock-begin {
-  counter-reset: codeblock-line-numbers;
-}
-
-body.fancy-code
-  .HyperMD-codeblock:not(
-    .HyperMD-codeblock-begin,
-    .HyperMD-codeblock-end
-  )::before {
-  counter-increment: codeblock-line-numbers;
-  content: counter(codeblock-line-numbers);
-  font-size: 0.75em;
-  line-height: 2;
-  text-align: right;
-  height: 100%;
-  width: 1.7em;
-  color: var(--text-muted);
-  /* background-color: #1e2029; */
-  background-color: var(--code-background);
-  position: absolute;
-  left: 0;
-  padding-right: 1.4em;
-}
-
-body.fancy-code
-  .HyperMD-codeblock.HyperMD-codeblock-bg.cm-line:not(
-    .HyperMD-codeblock-begin,
-    .HyperMD-codeblock-end
-  ) {
-  padding-left: 2.8em;
-}
-
-body.fancy-code .cm-s-obsidian div.HyperMD-codeblock-begin-bg {
-  background-color: var(--code-block-alt-bg);
-  border: var(--codeblock-border);
-  border-bottom: none;
-  border-top-right-radius: var(--codeblock-roundness);
-  border-top-left-radius: var(--codeblock-roundness);
-}
-
-body.fancy-code div.HyperMD-codeblock-bg:not(.HyperMD-codeblock-begin-bg) {
-  border-right: var(--codeblock-border);
-  border-left: var(--codeblock-border);
-}
-
-body.fancy-code .cm-line.HyperMD-codeblock .code-block-flair {
-  font-size: calc(var(--code-size) * 0.9);
-  color: var(--text-muted);
-  padding: 0 1px;
-  top: 0;
-}
-
-body.fancy-code .markdown-reading-view pre[class*="language-"]::before {
-  display: block;
-  content: " ";
-  line-height: 1.5em;
-  background-color: var(--code-block-alt-bg);
-  border-top-right-radius: calc(var(--codeblock-roundness) * 0.8);
-  border-top-left-radius: calc(var(--codeblock-roundness) * 0.8);
-}
-
-body.fancy-code pre[class*="language-"]::after {
-  content: attr(class);
-  font-size: 0.9rem;
-  text-shadow: none;
-  color: var(--text-muted);
-  position: absolute;
-  top: 2px;
-  right: 5px;
-}
-
-body.fancy-code .markdown-preview-view pre code {
-  padding: var(--size-4-1) var(--size-4-2);
-}
-
-body.fancy-code .copy-code-button.copy-code-button.copy-code-button {
-  background-color: var(--interactive-normal);
-  top: unset;
-  bottom: 0;
-  padding: 0 var(--size-2-2);
-}
-
-body.fancy-code .markdown-preview-view.markdown-preview-view pre {
-  padding: 0;
-  margin-top: var(--size-4-2);
-  border: var(--codeblock-border);
-  border-radius: var(--codeblock-roundness);
-}
-
-body.fancy-code .markdown-reading-view .markdown-preview-view pre code {
-  display: block;
-}
-
-body.fancy-code .markdown-preview-view pre code {
-  padding: var(--size-4-1) var(--size-4-5);
-}
-
-/* ------------------- */
-/* One Dark Syntax Coloring */
-/* Source: https://github.com/AGMStudio/prism-theme-one-dark */
-/* ------------------- */
-.theme-light .token.comment .theme-light .cm-comment {
-  color: #ababab;
-}
-.theme-dark .token.comment,
-.theme-dark .cm-comment:not(.cm-hashtag),
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: var(--atom-gray-1);
-}
-.token.punctuation,
-.token.plain-text,
-.token.dom.variable,
-.cm-hmd-codeblock.cm-bracket {
-  color: var(--atom-gray-2);
-}
-code[class*="language-"],
-.token.selector,
-.cm-tag,
-.token.dom.variable,
-.token.tag,
-.cm-def,
-.token.parameter,
-.cm-property,
-.cm-qualifier {
-  color: var(--atom-red);
-}
-.token.class-name,
-.token.maybe-class-name,
-.token.property-access,
-.token.constant,
-.token.builtin,
-.cm-variable-2,
-.cm-type,
-.cm-atom,
-code .cm-tag {
-  color: var(--atom-yellow);
-}
-.token.property,
-.token.boolean,
-.token.number,
-.token.symbol,
-.token.attr-name,
-.token.deleted,
-.cm-attribute,
-.cm-number,
-.cm-property.cm-string {
-  color: var(--atom-orange);
-}
-.token.string,
-.token.char,
-.token.attr-value,
-.token.inserted,
-.cm-hmd-codeblock.cm-string,
-.cm-hmd-codeblock.cm-string-2 {
-  color: var(--atom-green);
-}
-.token.operator,
-.cm-operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: var(--atom-aqua);
-}
-.token.atrule,
-.token.keyword,
-.cm-keyword {
-  color: var(--atom-purple);
-}
-.cm-variable,
-.token.function,
-.token.method,
-.token.macro.property {
-  color: var(--atom-blue);
-}
-.token.regex,
-.token.important,
-.token.variable {
-  color: var(--atom-purple);
-}
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
-
-/* --------------------- */
-/* Mobile toolbar button */
-/* --------------------- */
-
-/* iOS glass: style button in-place within the glass pill */
-body.is-mobile.is-ios:not(.floating-button-off)
-  .view-actions
-  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
-  color: white;
-  background-color: var(--blue);
-  opacity: 1;
-  display: flex;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50% !important;
-  box-shadow:
-    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
-    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
-    5px 1.3px 10px rgba(0, 0, 0, 0.035),
-    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
-    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
-    40px 10px 80px rgba(0, 0, 0, 0.07);
-}
-
-/* Non-iOS mobile (Android): floating button at bottom-right */
-body.is-mobile:not(.is-ios):not(.floating-button-off):not(.advanced-toolbar)
-  .view-actions
-  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
-  color: white;
-  background-color: var(--blue);
-  opacity: 1;
-  position: fixed;
-  top: calc(90vh - 110px);
-  /*left: 80vw;*/
-  transform: translate(-40%, 5%);
-  display: flex;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  width: 53px;
-  height: 53px;
-  border-radius: 50% !important;
-  box-shadow:
-    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
-    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
-    5px 1.3px 10px rgba(0, 0, 0, 0.035),
-    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
-    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
-    40px 10px 80px rgba(0, 0, 0, 0.07);
-}
-body.is-mobile:not(.is-ios):not(.floating-button-off).advanced-toolbar
-  .view-actions
-  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
-  color: white;
-  background-color: var(--blue);
-  opacity: 1;
-  position: fixed;
-  top: calc(100vh - 138px);
-  /*left: 80vw;*/
-  transform: translate(-40%, -115%);
-  display: flex;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  width: 53px;
-  height: 53px;
-  border-radius: 50% !important;
-  box-shadow:
-    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
-    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
-    5px 1.3px 10px rgba(0, 0, 0, 0.035),
-    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
-    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
-    40px 10px 80px rgba(0, 0, 0, 0.07);
-}
-
-/* ------------------- */
-/* Checkbox styling & icons. Credit Minimal theme: https://minimal.guide/Block+types/Checklists#Checkbox+styling */
-/* Support @kepano - https://www.buymeacoffee.com/kepano */
-/* ------------------- */
 
 input[data-task='!']:checked,
 input[data-task='*']:checked,
@@ -1004,8 +651,8 @@ li[data-task="“"] > input:checked,
 li[data-task="“"] > p > input:checked {
   --checkbox-marker-color: transparent;
   background-position: 50% 50%;
-  background-color: var(--color-cyan);
-  border-color: var(--color-cyan);
+  background-color: var(--light);
+  border-color: var(--light);
   background-size: 75%;
   background-repeat: no-repeat;
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="white" d="M6.5 10c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.318.142-.686.238-1.028.466c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.945c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.317.143-.686.238-1.028.467c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.944c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 17.5 10z"%2F%3E%3C%2Fsvg%3E');
@@ -1051,8 +698,8 @@ input[data-task="i"]:checked,
 li[data-task="i"] > input:checked,
 li[data-task="i"] > p > input:checked {
   --checkbox-marker-color: transparent;
-  background-color: var(--color-blue);
-  border-color: var(--color-blue);
+  background-color: var(--cyan);
+  border-color: var(--cyan);
   background-position: 50%;
   background-size: 100%;
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"%3E%3Cpath fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="40" d="M196 220h64v172"%2F%3E%3Cpath fill="none" stroke="white" stroke-linecap="round" stroke-miterlimit="10" stroke-width="40" d="M187 396h138"%2F%3E%3Cpath fill="white" d="M256 160a32 32 0 1 1 32-32a32 32 0 0 1-32 32Z"%2F%3E%3C%2Fsvg%3E');
@@ -1103,13 +750,13 @@ li[data-task="u"] > p > input:checked {
 input[data-task="d"]:checked,
 li[data-task="d"] > input:checked,
 li[data-task="d"] > p > input:checked {
-  color: var(--color-red);
+  color: var(--orange);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z' clip-rule='evenodd' /%3E%3C/svg%3E");
 }
 input[data-task="w"]:checked,
 li[data-task="w"] > input:checked,
 li[data-task="w"] > p > input:checked {
-  color: var(--color-purple);
+  color: var(--green);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M6 3a1 1 0 011-1h.01a1 1 0 010 2H7a1 1 0 01-1-1zm2 3a1 1 0 00-2 0v1a2 2 0 00-2 2v1a2 2 0 00-2 2v.683a3.7 3.7 0 011.055.485 1.704 1.704 0 001.89 0 3.704 3.704 0 014.11 0 1.704 1.704 0 001.89 0 3.704 3.704 0 014.11 0 1.704 1.704 0 001.89 0A3.7 3.7 0 0118 12.683V12a2 2 0 00-2-2V9a2 2 0 00-2-2V6a1 1 0 10-2 0v1h-1V6a1 1 0 10-2 0v1H8V6zm10 8.868a3.704 3.704 0 01-4.055-.036 1.704 1.704 0 00-1.89 0 3.704 3.704 0 01-4.11 0 1.704 1.704 0 00-1.89 0A3.704 3.704 0 012 14.868V17a1 1 0 001 1h14a1 1 0 001-1v-2.132zM9 3a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm3 0a1 1 0 011-1h.01a1 1 0 110 2H13a1 1 0 01-1-1z' clip-rule='evenodd' /%3E%3C/svg%3E");
 }
 input[data-task="p"]:checked,
@@ -1127,13 +774,13 @@ li[data-task="c"] > p > input:checked {
 input[data-task="b"]:checked,
 li[data-task="b"] > input:checked,
 li[data-task="b"] > p > input:checked {
-  color: var(--color-orange);
+  color: var(--cyan);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath d='M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z' /%3E%3C/svg%3E");
 }
 input[data-task="P"]:checked,
 li[data-task="P"] > input:checked,
 li[data-task="P"] > p > input:checked {
-  color: var(--color-green);
+  color: var(--orange);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z'%3E%3C/path%3E%3C/svg%3E");
 }
 input[data-task="M"]:checked,
@@ -1145,7 +792,7 @@ li[data-task="M"] > p > input:checked {
 input[data-task="D"]:checked,
 li[data-task="D"] > input:checked,
 li[data-task="D"] > p > input:checked {
-  color: var(--color-base-50);
+  color: var(--light);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M3.25 1A2.25 2.25 0 0 1 4 5.372v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.251 2.251 0 0 1 3.25 1Zm9.5 14a2.25 2.25 0 1 1 0-4.5 2.25 2.25 0 0 1 0 4.5ZM2.5 3.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0ZM3.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM14 7.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Zm0-4.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z'%3E%3C/path%3E%3C/svg%3E");
 }
 
@@ -1173,761 +820,181 @@ body:not(.tasks) li[data-task="D"].task-list-item.is-checked {
   color: var(--text-normal);
 }
 
-/* ------------------- */
-/* Progress bars styling. Credit Minimal theme: https://minimal.guide/progress-bars */
-/* Support @kepano - https://www.buymeacoffee.com/kepano */
-/* ------------------- */
-.progress-color {
-  .markdown-rendered progress,
-  .markdown-source-view.is-live-preview progress,
-  .markdown-preview-view progress {
-    &[value^="1"]::-webkit-progress-value,
-    &[value^="2"]::-webkit-progress-value,
-    &[value^="3"]::-webkit-progress-value {
-      background-color: var(--progress-color-1);
-    }
-    &[value^="4"]::-webkit-progress-value,
-    &[value^="5"]::-webkit-progress-value {
-      background-color: var(--progress-color-2);
-    }
-    &[value^="6"]::-webkit-progress-value,
-    &[value^="7"]::-webkit-progress-value {
-      background-color: var(--progress-color-3);
-    }
-    &[value^="8"]::-webkit-progress-value,
-    &[value^="9"]::-webkit-progress-value {
-      background-color: var(--progress-color-4);
-    }
-    &[value="1"]::-webkit-progress-value,
-    &[value="100"]::-webkit-progress-value {
-      background-color: var(--progress-color-5);
-    }
 
-    &[value="0"]::-webkit-progress-value,
-    &[value="2"]::-webkit-progress-value,
-    &[value="3"]::-webkit-progress-value,
-    &[value="4"]::-webkit-progress-value,
-    &[value="5"]::-webkit-progress-value,
-    &[value="6"]::-webkit-progress-value,
-    &[value="7"]::-webkit-progress-value,
-    &[value="8"]::-webkit-progress-value,
-    &[value="9"]::-webkit-progress-value {
-      background-color: var(--progress-color-1);
-    }
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * И З О Б Р А Ж Е Н И Я
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+img {
+  border-radius: var(--radius-m);
 }
 
-/* ─────────────────────────────────────────────────── */
-/* Plugins */
-/* ─────────────────────────────────────────────────── */
 
-/* --------------- */
-/* Todoist */
-/* --------------- */
 
-.todoist-p1 > input[type="checkbox"] {
-  border: 1px solid #ff757f !important;
-  background-color: rgba(255, 117, 127, 0.25) !important;
-}
-.todoist-p1 > input[type="checkbox"]:hover {
-  background-color: rgba(255, 117, 127, 0.5) !important;
-}
-.todoist-p2 > input[type="checkbox"] {
-  border: 1px solid #ffc777 !important;
-  background-color: rgba(255, 199, 119, 0.25) !important;
-}
-.todoist-p2 > input[type="checkbox"]:hover {
-  background-color: rgba(255, 199, 119, 0.5) !important;
-}
-.todoist-p3 > input[type="checkbox"] {
-  border: 1px solid #65bcff !important;
-  background-color: rgba(101, 188, 255, 0.25) !important;
-}
-.todoist-p3 > input[type="checkbox"]:hover {
-  background-color: rgba(101, 188, 255, 0.5) !important;
-}
-.todoist-p4 > input[type="checkbox"] {
-  border: 1px solid #b4c2f0 !important;
-  background-color: rgba(180, 194, 240, 0.25) !important;
-}
-.todoist-p4 > input[type="checkbox"]:hover {
-  background-color: rgba(180, 194, 240, 0.5) !important;
-}
-.task-metadata {
-  font-size: var(--font-todoist-metadata-size);
-  color: #7a88cf;
-  margin-left: unset;
-}
-.task-metadata > * {
-  margin-right: 30px;
-}
-.task-date.task-overdue {
-  color: rgba(255, 152, 164, 0.75) !important;
-}
-.task-calendar-icon,
-.task-project-icon,
-.task-labels-icon {
-  vertical-align: middle;
-  height: 17px;
-  width: 17px;
-}
-.todoist-project .todoist-project {
-  margin-left: 20px;
-}
-.todoist-section {
-  margin-left: 20px;
-}
-.todoist-project .todoist-project-title {
-  font-weight: 700;
-  margin-block-end: 0px;
-}
-.todoist-section .todoist-section-title {
-  font-size: var(--font-todoist-title-size);
-  color: #7a88cf;
-  font-weight: 700;
-  margin-block-end: 0px;
-}
-.todoist-error {
-  border: 1px solid #ff98a4;
-  background-color: rgba(255, 152, 164, 0.05);
-  padding: 1em 1em;
-  margin: 1em 0px;
-}
-.todoist-error p {
-  margin: 0 0 1em 0;
-  font-weight: 600;
-}
-.todoist-error code {
-  background-color: unset !important;
-  padding: unset !important;
-  margin: unset !important;
-}
-.todoist-success {
-  border: 1px solid #c3e88d !important;
-  background-color: rgba(195, 232, 141, 0.05);
-  padding: 1em 1em !important;
-  margin: 1em 0px;
-}
-.todoist-success p {
-  margin: 0;
-  font-weight: 600;
-}
-/* .priority-container .priority-1 {
-  color: #ff98a4;
-}
-.priority-container .priority-2 {
-  color: #ffc777;
-}
-.priority-container .priority-3 {
-  color: #65bcff;
-}
-.priority-container .priority-4 {
-  color: #b4c2f0;
-} */
 
-/* ---------------  */
-/* Checklist */
-/* --------------- */
 
-.checklist-plugin-main .title {
-  font-size: var(--nav-item-size);
+
+.theme-dark .modal-container .suggestion-item.is-selected {
+  background: var(--color-accent);
 }
 
-.checklist-plugin-main .container input.search {
-  font-size: var(--font-ui-small);
+/* Focus active line */
+body.active-line .cm-active:not(.HyperMD-header, .HyperMD-codeblock)::before,
+body.active-line .cm-active.HyperMD-quote::before {
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: -1.125em;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 10px 0 0 10px;
+  opacity: 0.85;
 }
 
-.checklist-plugin-main .group-header button.collapse,
-.checklist-plugin-main button.toggle {
-  box-shadow: none;
-  cursor: pointer;
+/* Inline code background (separate from block code) */
+.theme-light .markdown-rendered code:not(pre code),
+.theme-light .markdown-preview-view code:not(pre code) {
+  background-color: var(--code-background-l);
+}
+.theme-dark .markdown-rendered code:not(pre code),
+.theme-dark .markdown-preview-view code:not(pre code) {
+  background-color: var(--code-background-d);
+}
+.theme-light .cm-s-obsidian span.cm-inline-code {
+  background-color: var(--code-background-l);
+}
+.theme-dark .cm-s-obsidian span.cm-inline-code {
+  background-color: var(--code-background-d);
 }
 
-.checklist-plugin-main .classic .content > p {
-  font-size: var(--font-ui-smaller);
+/* Copy button stays fixed at top-right while code scrolls horizontally */
+.markdown-reading-view .el-pre {
+  position: relative;
+}
+.markdown-reading-view .el-pre pre {
+  position: static;
+  overflow-x: auto;
+  white-space: pre;
+}
+.markdown-reading-view .el-pre pre code {
+  white-space: pre;
+}
+.markdown-reading-view .el-pre .copy-code-button {
+  position: absolute;
 }
 
-.checklist-plugin-main .toggle .checkbox {
-  border-radius: var(--checkbox-radius) !important;
+/* Code block background (separate from inline code) */
+.theme-light .markdown-preview-view pre:not(.frontmatter) {
+  background-color: var(--code-block-background-l);
+}
+.theme-dark .markdown-preview-view pre:not(.frontmatter) {
+  background-color: var(--code-block-background-d);
+}
+.theme-light .cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--code-block-background-l);
+}
+.theme-dark .cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--code-block-background-d);
 }
 
-/* ---------------  */
-/* Kanban */
-/* --------------- */
 
-body:not(.no-kanban-styles) .kanban-plugin {
-  --dot-color: hsl(0 0% 40% / 10%);
-  --dot-spacing: 9px;
-  --dot-size: 1px;
-}
-body:not(.no-kanban-styles) .kanban-plugin__board {
-  background-image: radial-gradient(
-    circle,
-    var(--dot-color) var(--dot-size),
-    transparent var(--dot-size)
-  );
-  border-top: var(--thin-border);
-  background-size: var(--dot-spacing) var(--dot-spacing);
-  background-attachment: local;
-}
 
-body:not(.no-kanban-styles) .kanban-plugin__board > div {
-  margin: 0 auto;
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * В Ы Н О С К И
+ * https://obsidian.md/help/callouts
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Общие настройки отступов */
+.callout {
+  border-radius: var(--radius-m);
+  padding-left:  1em;
+	margin-bottom: 1.5em !important;
+	margin-top:    1em !important;
+  border-right-width: 16px;
 }
-body:not(.no-kanban-styles) .kanban-plugin__item-form {
-  border-top: none;
+.callout-title,
+.callout-title-inner {
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+  font-size: 1.2rem;
 }
-body:not(.no-kanban-styles) .kanban-plugin__lane-header-wrapper {
-  border-bottom: 0;
+.callout-content p {
+	margin: 0 0 0 32px;
 }
-body:not(.no-kanban-styles) .kanban-plugin button {
-  box-shadow: none;
-}
-body:not(.no-kanban-styles) .kanban-plugin__item-button-wrapper > button:hover {
-  color: var(--text-normal);
-  background: var(--background-modifier-hover);
-}
-body:not(.no-kanban-styles) .kanban-plugin__item-button-wrapper {
-  border-top: none;
-}
-body:not(.no-kanban-styles) .kanban-plugin__lane {
-  border: 1px solid transparent;
-}
-body:not(.no-kanban-styles) .kanban-plugin__item-content-wrapper {
-  box-shadow: none;
+.callout-icon {
+  margin-left: -0em !important;
+  margin-right: 0.5em !important;
 }
 
-body:not(.no-kanban-styles):not(.is-mobile)
-  .kanban-plugin__grow-wrap
-  > textarea:focus {
-  box-shadow: none;
+/* GitHub-совместимые выноски */
+.callout[data-callout="note"] {
+    --callout-color: var(--yellow-rgb);
+    --callout-icon: lucide-code;
+    border-right-color: var(--yellow);
 }
-body:not(.no-kanban-styles) .kanban-plugin__item-input-actions button,
-body:not(.no-kanban-styles) .kanban-plugin__lane-input-actions button {
-  font-size: var(--font-adaptive-small);
+.callout[data-callout="tip"] {
+    --callout-color: var(--green-rgb);
+    --callout-icon: lucide-lightbulb;
+    border-right-color: var(--green);
 }
-body:not(.no-kanban-styles)
-  .kanban-plugin__lane-header-wrapper
-  .kanban-plugin__grow-wrap
-  > textarea,
-body:not(.no-kanban-styles)
-  .kanban-plugin__lane-input-wrapper
-  .kanban-plugin__grow-wrap
-  > textarea {
-  background: transparent;
+.callout[data-callout="warning"] {
+    --callout-color: var(--magenta-rgb);
+    --callout-icon: lucide-bug;
+    border-right-color: var(--magenta);
 }
-body .kanban-plugin__item-button-wrapper > button {
-  color: var(--text-muted);
-  font-weight: 400;
-  background: 0 0;
-  min-height: calc(var(--input-height) + 8px);
+.callout[data-callout="important"] {
+    --callout-color: var(--cyan-rgb);
+    --callout-icon: lucide-check-circle; 
+    border-right-color: var(--cyan);
 }
-body .kanban-plugin__item-form .kanban-plugin__item-input-wrapper {
-  min-height: calc(var(--input-height) + 8px);
-  display: flex;
-  justify-content: center;
-}
-.kanban-plugin__item-input-wrapper textarea {
-  background-color: var(--background-primary);
-}
-.kanban-plugin__lane-items {
-  padding-bottom: 0;
+.callout[data-callout="caution"] {
+    --callout-color: var(--orange-rgb);
+    --callout-icon: lucide-alert-octagon; 
+    border-right-color: var(--orange);
 }
 
-/* ─────────────────────────────────────────────────── */
-/* Styles Settings */
-/* ─────────────────────────────────────────────────── */
+/* Выноска по умолчанию (прозрачный фон) */
+.callout[data-callout="info"] {
+    --callout-color: transparent;
+    --callout-icon: lucide-book;
+    border-right-width: 0;
+}
 
-/* @settings
-name: Things Theme
-id: things-style
-settings:
-    -
-        id: features
-        title: Features
-        type: heading
-        level: 2
-        collapsed: true
-    -
-        title: Black mobile background
-        description: Change mobile editor background to default theme black
-        id: mobile-black-background
-        type: class-toggle
-        default: false
-    -
-        title: Disable mobile floating-action button
-        description: Revert placement of edit/preview button to default in header (mobile)
-        id: floating-button-off
-        type: class-toggle
-        default: false
-    -
-        title: Highlight active line
-        description: Change background color of current working line
-        id: active-line
-        type: class-toggle
-        default: false
-    -
-        title: Fancy code blocks
-        description: Enable fancy numbered code blocks
-        id: fancy-code
-        type: class-toggle
-        default: false
-    -
-        title: Fancy highlighting
-        description: Enable fancy highlight styles with highlight underlines
-        id: fancy-highlight
-        type: class-toggle
-        default: false
-    -
-        title: Disable Kanban board styles
-        description: Remove minimalist styling to the Kanban plugin
-        id: no-kanban-styles
-        type: class-toggle
-        default: false
-    -
-        id: link-decoration
-        title: Underline internal links
-        description: Show underlines on internal links
-        type: variable-select
-        default: Underline
-        options:
-          - Underline
-          - None
-    -
-        id: link-external-decoration
-        title: Underline external links
-        description: Show underlines on external links
-        type: variable-select
-        default: Underline
-        options:
-          - Underline
-          - None
-	-
-        id: custom-fonts
-        title: Typography
-        type: heading
-        level: 2
-        collapsed: true
-    -
-        id: default-font-color
-        title: Default font colors
-        description: Use the default font color styling for bold, italics, and quotes
-        type: class-toggle
-        default:  false
-    -
-        id: text-highlight-bg-l
-        title: Highlight color (light)
-        type: variable-color
-        format: rgb
-        default: 'rgba(255, 208, 0, 0.4)'
-    -
-        id: text-highlight-bg-d
-        title: Highlight color (dark)
-        type: variable-color
-        format: rgb
-        default: 'rgba(255, 208, 0, 0.4)'
-    -
-        id: strong-color
-        title: Bold font color
-        type: variable-color
-        format: hex
-        default: '#FF82B2'
-    -
-        id: em-color
-        title: Italics font color
-        type: variable-color
-        format: hex
-        default: '#FF82B2'
-    -
-        id: quote-color
-        title: Blockquotes font color
-        type: variable-color
-        format: hex
-        default: '#3EB4BF'
-    -
-        id: quote-background
-        title: Blockquote background color
-        type: variable-color
-        opacity: true
-        format: rgb
-        default: 'rgba(0,0,0,0)'
-    -
-        id: code-block-background-l
-        title: Code block background (Light mode)
-        type: variable-color
-        format: hex
-        default: '#f0f2f5'
-    -
-        id: code-block-background-d
-        title: Code block background (Dark mode)
-        type: variable-color
-        format: hex
-        default: '#282c34'
-    -
-        id: code-background-l
-        title: Inline code background (Light mode)
-        type: variable-color
-        format: hex
-        default: '#eceef1'
-    -
-        id: code-background-d
-        title: Inline code background (Dark mode)
-        type: variable-color
-        format: hex
-        default: '#303540'
-    -
-        id: tag-background-color-l
-        title: Tag background color (Light mode)
-        type: variable-color
-        format: hex
-        default: '#BDE1D3'
-    -
-        id: tag-font-color-l
-        title: Tag font color (Light mode)
-        type: variable-color
-        format: hex
-        default: '#1D694B'
-    -
-        id: tag-background-color-d
-        title: Tag background color (Dark mode)
-        type: variable-color
-        format: hex
-        default: '#1D694B'
-    -
-        id: tag-font-color-d
-        title: Tag font color (Dark mode)
-        type: variable-color
-        format: hex
-        default: '#FFFFFF'
-    -
-        id: progress-color
-        title: Progress colorful mode switcher
-        description: Toggle progress color scheme
-        type: class-toggle
-        default: false
-    -
-        id: progress-color-1
-        title: progress 2-39% color
-        type: variable-color
-        opacity: true
-        format: hex
-        default: '#ad5758'
-    -
-        id: progress-color-2
-        title: progress 40-59% color
-        type: variable-color
-        opacity: true
-        format: hex
-        default: '#b87f4c'
-    -
-        id: progress-color-3
-        title: progress 60-79% color
-        type: variable-color
-        opacity: true
-        format: hex
-        default: '#d2b874'
-    -
-        id: progress-color-4
-        title: progress 80-99% color
-        type: variable-color
-        opacity: true
-        format: hex
-        default: '#b0c07e'
-    -
-        id: progress-color-5
-        title: progress 1,100% color
-        type: variable-color
-        opacity: true
-        format: hex
-        default: '#768399'
-    -
-        id: headings
-        title: Headings
-        type: heading
-        level: 2
-        collapsed: true
-    -
-        id: heading-underline-color
-        title: Match underline color to heading color
-        description: When enabled, heading border-bottom uses the heading's own color
-        type: class-toggle
-        default: false
-    -
-        id: level-1-headings
-        title: Level 1 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h1-size
-        title: H1 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 1.7em
-    -
-        id: h1-weight
-        title: H1 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 700
-    -
-        id: h1-color
-        title: H1 color
-        type: variable-color
-        format: hex
-        default: '#'
-    -
-        id: h1-small-caps
-        title: H1 small caps
-        description: Toggle H1 small caps
-        type: class-toggle
-        default: false
-    -
-        id: h1-underline
-        title: H1 underline
-        description: Toggle H1 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: level-2-headings
-        title: Level 2 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h2-size
-        title: H2 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 1.5em
-    -
-        id: h2-weight
-        title: H2 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 700
-    -
-        id: h2-color
-        title: H2 color
-        type: variable-color
-        format: hex
-        default: '#2E80F2'
-    -
-        id: h2-no-underline
-        title: H2 underline
-        description: Disable H2 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: h2-small-caps
-        title: H2 small caps
-        description: Toggle H2 small caps
-        type: class-toggle
-        default: false
-    -
-        id: level-3-headings
-        title: Level 3 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h3-size
-        title: H3 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 1.2em
-    -
-        id: h3-weight
-        title: H3 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 600
-    -
-        id: h3-color
-        title: H3 color
-        type: variable-color
-        format: hex
-        default: '#2E80F2'
-    -
-        id: h3-small-caps
-        title: H3 small caps
-        description: Toggle H3 small caps
-        type: class-toggle
-        default: false
-    -
-        id: h3-underline
-        title: H3 underline
-        description: Toggle H3 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: level-4-headings
-        title: Level 4 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h4-size
-        title: H4 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 1.1em
-    -
-        id: h4-weight
-        title: H4 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 500
-    -
-        id: h4-color
-        title: H4 color
-        type: variable-color
-        format: hex
-        default: '#E5B567'
-    -
-        id: h4-transform
-        title: H4 transform
-        description: Transform the H4 heading text
-        type: variable-select
-        default: uppercase
-        options:
-            -
-                label: Uppercase
-                value: uppercase
-            -
-                label: None
-                value: none
-    -
-        id: h4-small-caps
-        title: H4 small caps
-        description: Toggle H4 small caps
-        type: class-toggle
-        default: false
-    -
-        id: h4-underline
-        title: H4 underline
-        description: Toggle H4 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: level-5-headings
-        title: Level 5 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h5-size
-        title: H5 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 1em
-    -
-        id: h5-weight
-        title: H5 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 500
-    -
-        id: h5-color
-        title: H5 color
-        type: variable-color
-        format: hex
-        default: '#E83E3E'
-    -
-        id: h5-small-caps
-        title: H5 small caps
-        description: Toggle H5 small caps
-        type: class-toggle
-        default: false
-    -
-        id: h5-underline
-        title: H5 underline
-        description: Toggle H5 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: level-6-headings
-        title: Level 6 Headings
-        type: heading
-        level: 3
-        collapsed: true
-    -
-        id: h6-size
-        title: H6 font size
-        description: Accepts any CSS font-size value
-        type: variable-text
-        default: 0.9em
-    -
-        id: h6-weight
-        title: H6 font weight
-        description: Accepts numbers representing the CSS font-weight
-        type: variable-number
-        default: 400
-    -
-        id: h6-color
-        title: H6 color
-        type: variable-color
-        format: hex
-        default: '#'
-    -
-        id: h6-small-caps
-        title: H6 small caps
-        description: Toggle H6 small caps
-        type: class-toggle
-        default: false
-    -
-        id: h6-underline
-        title: H6 underline
-        description: Toggle H6 underline (border-bottom)
-        type: class-toggle
-        default: false
-    -
-        id: credits
-        title: Credits
-        type: heading
-        description: Created with ❤︎ by @colineckert. Support @colineckert at buymeacoffee.com/colineckert
-        level: 2
-        collapsed: true
 
-*/
 
-/* ─────────────────────────────────────────────────── */
-/* Plugin Compatibility info for the Obsidian Hub */
-/* ─────────────────────────────────────────────────── */
 
-/* @plugins
-core:
-- backlink
-- command-palette
-- file-explorer
-- global-search
-- graph
-- outgoing-link
-- outline
-- page-preview
-- starred
-- switcher
-- tag-pane
-- file-recovery
-- daily-notes
-- random-note
-- publish
-- sync
-- word-count
-community:
-- sliding-panes-obsidian
-- obsidian-codemirror-options
-- obsidian-kanban
-- dataview
-- obsidian-hider
-- calendar
-- mysnippets-plugin
-- cmenu-plugin
-- obsidian-outliner
-- readwise-official
-- tag-wrangler
-- todoist-sync-plugin
-- templater-obsidian
-- obsidian-system-dark-mode
-- obsidian-style-settings
-*/
+
+
+
+
+
+
+
+
+
+@import "./fancy-code.css";
+@import "./one-dark.css";
+@import "./mobile-toolbar-button.css";
+
+@import "./checkbox.css";
+@import "./progress-bar.css";
+
+/* Плагины */
+@import "./plugin-checklist.css";
+@import "./plugin-kanban.css";
+@import "./plugin-todoist.css";

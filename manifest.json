@@ -1,7 +1,7 @@
 {
-  "name": "Things",
-  "version": "2.2.3",
+  "name": "obsidian-things-op",
+  "version": "1.0.1",
   "minAppVersion": "1.0.0",
-  "author": "@colineckert",
-  "authorUrl": "https://twitter.com/colineckert"
+  "author": "@olgapavlova",
+  "authorUrl": "https://www.olgpv.me"
 }
