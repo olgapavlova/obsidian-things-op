@@ -1,0 +1,84 @@
+{
+	"files": [
+		{
+			"path": "theme.css",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 0,
+					"label": "цвета"
+				},
+				{
+					"line": 74,
+					"column": 0,
+					"label": "заголовки"
+				},
+				{
+					"line": 207,
+					"column": 0,
+					"label": "настройки оформления"
+				},
+				{
+					"line": 279,
+					"column": 0,
+					"label": "хлебные крошки"
+				},
+				{
+					"line": 294,
+					"column": 0,
+					"label": "цитаты"
+				},
+				{
+					"line": 312,
+					"column": 0,
+					"label": "checkboxes"
+				},
+				{
+					"line": 635,
+					"column": 0,
+					"label": "inline code"
+				},
+				{
+					"line": 657,
+					"column": 0,
+					"label": "inline подсветка"
+				},
+				{
+					"line": 678,
+					"column": 0,
+					"label": "inline теги"
+				},
+				{
+					"line": 706,
+					"column": 0,
+					"label": "выноски"
+				},
+				{
+					"line": 767,
+					"column": 0,
+					"label": "светлая тема"
+				},
+				{
+					"line": 879,
+					"column": 0,
+					"label": "блоки кода"
+				},
+				{
+					"line": 932,
+					"column": 0,
+					"label": "чип (токен) цвета"
+				},
+				{
+					"line": 947,
+					"column": 0,
+					"label": "мелкие настройки"
+				},
+				{
+					"line": 964,
+					"column": 0,
+					"label": "! НЕ РАЗОБРАНО"
+				}
+			]
+		}
+	]
+}

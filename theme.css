@@ -1,14 +1,14 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
  * Версия темы Things • https://github.com/colineckert/obsidian-things
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
  
 @charset "UTF-8";
 
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Ц В Е Т А
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 body {
   /* Базовые цвета палитры */
   --red:       #cb0008;
@@ -36,7 +36,8 @@ body {
   /* Градиент */
   --g-00: #000000;
   --g-01: #110f00;
-  --g-02: #2b291f;
+  --g-02:   #2b291f;
+  --g-02-rgb: rgba(43, 41, 31, 1);
   --g-03: #3c3a2f;
   --g-04: #4b493d;
   --g-05: #59584b;
@@ -57,7 +58,8 @@ body {
   --g-20: #ffffff;
 
   /* Именованные цвета градиента */
-  --black:   var(--g-02);
+  --black:     var(--g-02);
+  --black-rgb: var(--g-02-rgb);
   --normal:  var(--g-04);
   --gray:    var(--g-08);
   --light:   var(--g-12);
@@ -65,12 +67,14 @@ body {
   /* 5 из 20 цветов градиента базовой палитры */
 
 }
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * З А Г О Л О В К И
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 body {
   /* Цвета */
   --h1-color: var(--green);
@@ -79,7 +83,6 @@ body {
   --h4-color: var(--normal);
   --h5-color: var(--normal);
   --h6-color: var(--normal);
-  /* пока не вижу смысла в раскрашивании заголовков */
 
   /* Размеры */
   --h1-size: 4rem;
@@ -91,8 +94,6 @@ body {
   /* пропорции для различимости, не для красоты */
 
 }
-
-
 /* h1 */
 .markdown-preview-view h1,
 .markdown-rendered h1 {
@@ -100,7 +101,6 @@ body {
   border-bottom: 80px ridge var(--h1-color);
   border-radius: var(--radius-l);
   width: 80%;
-
   padding-top: var(--h1-size);
   padding-bottom: var(--h6-size);
   line-height: 1;
@@ -108,7 +108,6 @@ body {
   font-size: var(--h1-size);
   font-weight: 100;
 }
-
 /* h2 */
 .markdown-preview-view h2,
 .markdown-rendered h2 {
@@ -119,7 +118,6 @@ body {
   font-size: var(--h2-size);
   font-weight: 900;
 }
-
 /* h3 */
 .markdown-preview-view h3,
 .markdown-rendered h3 {
@@ -130,7 +128,6 @@ body {
   font-size: var(--h3-size);
   font-weight: 100;
 }
-
 /* h4 */
 .markdown-preview-view h4,
 .markdown-rendered h4 {
@@ -141,7 +138,6 @@ body {
   font-size: var(--h4-size);
   font-weight: 900;
 }
-
 /* h5 */
 .markdown-preview-view h5,
 .markdown-rendered h5 {
@@ -152,7 +148,6 @@ body {
   font-size: var(--h5-size);
   font-weight: 100;
 }
-
 /* h6 */
 .markdown-preview-view h6,
 .markdown-rendered h6 {
@@ -163,7 +158,6 @@ body {
   font-size: var(--h6-size);
   font-weight: 400;
 }
-
 /* При редактировании все заголовки выглядят одинаково */
 .HyperMD-header.HyperMD-header-1.cm-line,
 .HyperMD-header.HyperMD-header-2.cm-line,
@@ -175,7 +169,6 @@ body {
   font-size: var(--h6-size);
   font-weight: bold;
 }
-
 /* Heading small-caps */
 /* ? Когда это используется ? */
 body.h1-small-caps h1,
@@ -192,7 +185,6 @@ body.h6-small-caps h6,
 body.h6-small-caps .HyperMD-header.HyperMD-header-6.cm-line {
   font-variant-caps: small-caps;
 }
-
 /* Подчёркивание заголовков (h3–h6) */
 /* ? Когда это используется ? */
 body.h3-underline h3,
@@ -208,21 +200,17 @@ body.h6-underline .HyperMD-header.HyperMD-header-6.cm-line {
   padding-bottom: 2px;
   margin-bottom: 8px !important;
 }
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
 
-
-
-
-
-
-
-
-
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Н А С Т Р О Й К И   О Ф О Р М Л Е Н И Я
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 body {
 
-  /* Акцентный цвет? */
+  /* ? Акцентный цвет */
   --accent-h: 54; /* Accent hue */
   --accent-s: 11%; /* Accent saturation */
   --accent-l: 65%; /* Accent lightness Light Mode */
@@ -266,10 +254,8 @@ body {
   --line-width-wide: calc(var(--line-width) + 12.5%);
 
   /* Оформление кода */
-  --code-background-l: var(--white);
-  --code-background-d: var(--black);
-  --code-block-background-l: var(--white);
-  --code-block-background-d: var(--black);
+  --code-background: var(--black-rgb);
+  --code-block-background: var(--black-rgb);
 
   /* Цитаты */
   --quote-background: transparent;
@@ -284,90 +270,7 @@ body {
   --nested-padding: 1.1em;
   --folding-offset: 10px;
 }
-
-
-/* Светлая тема */
-.theme-light,
-body.theme-light.is-mobile {
-  color-scheme: light;
-  --highlight-mix-blend-mode: darken;
-  --mono-rgb-0: 255, 255, 255;
-  --mono-rgb-100: 0, 0, 0;
-
-
-  /* Условные цвета темы */
-  --color-red:        var(--red);
-  --color-red-rgb:    var(--red-rgb);
-  --color-orange:     var(--orange);
-  --color-orange-rgb: var(--orange-rgb);
-  --color-yellow:     var(--yellow);
-  --color-yellow-rgb: var(--yellow-rgb);
-  --color-green:      var(--green);
-  --color-green-rgb:  var(--green-rgb);
-  --color-cyan:       var(--cyan);
-  --color-cyan-rgb:   var(--cyan-rgb);
-  --color-blue:       var(--blue);
-  --color-blue-rgb:   var(--blue-rgb);
-  --color-purple:     var(--purple);
-  --color-purple-rgb: var(--purple-rgb);
-  --color-pink:       var(--pink);
-  --color-pink-rgb:   var(--pink-rgb);
-  /* в этом случае совпадают с реальными цветами */
-
-  /* Градиент темы */
-  --color-base-00: var(--g-20);
-  --color-base-05: var(--g-19);
-  --color-base-10: var(--g-18); /* блоки кода по умолчанию */
-  --color-base-20: var(--g-16);
-  --color-base-25: var(--g-15);
-  --color-base-30: var(--g-14); /* линии-разделители */
-  --color-base-35: var(--g-13);
-  --color-base-40: var(--g-12);
-  --color-base-50: var(--g-11);
-  --color-base-60: var(--g-09);
-  --color-base-70: var(--g-07);
-  --color-base-80: var(--g-05);
-  --color-base-90: var(--g-03);
-  --color-base-100: var(--g-01);
-  /* не все цвета градиента палитры сюда вошли */
-
-  --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
-  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --color-accent-1: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 2.5%)
-  );
-  --color-accent-2: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 5%)
-  );
-
-
-  /* Элементы интерфейса */
-  --background-modifier-hover: var(--yellow);
-  --background-secondary:      var(--g-19);
-  --background-secondary-alt:  var(--g-19);
-  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
-  --background-modifier-cover: rgba(220, 220, 220, 0.4);
-  --text-highlight-bg-l: rgba(255, 208, 0, 0.4);
-  --text-highlight-bg: var(--text-highlight-bg-l);
-  --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
-  --input-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.05),
-    0 1px 1.5px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.04),
-    0 0 0 0 transparent;
-  --input-shadow-hover:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.17), 0 2px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 1.5px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.04),
-    0 0 0 0 transparent;
-  --shadow-s:
-    0px 1px 2px rgba(0, 0, 0, 0.028), 0px 3.4px 6.7px rgba(0, 0, 0, 0.042),
-    0px 15px 30px rgba(0, 0, 0, 0.07);
-  --shadow-l:
-    0px 1.8px 7.3px rgba(0, 0, 0, 0.071), 0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
-    0px 30px 90px rgba(0, 0, 0, 0.2);
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
@@ -375,49 +278,8 @@ body.theme-light.is-mobile {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Т Е Г И
+ * Х Л Е Б Н Ы Е   К Р О Ш К И
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-  --tag-background:   var(--cyan);
-  --tag-color:        var(--white);
-  --tag-radius:       var(--radius-xl);
-  --tag-corner-shape: squircle;
-  --tag-weight:       400;
-  --tag-size:         1rem;
-  --tag-padding-x:    0.8rem;
-  --tag-padding-y:    0.2rem;
-
-
-
-
-
-
-
-
-  /* ? Разные варианты текста */
-  --text-normal:       var(--black);
-  --text-muted:        var(--normal);
-  --text-faint:        var(--light);
-  --text-formatted:    var(--gray);
-  --text-accent:       var(--g-05);
-  --text-accent-hover: var(--g-08);
-
-  /* ? Что-то интерфейсное? */
-  --titlebar-background:         var(--color-base-05);
-  --titlebar-background-focused: var(--color-base-05);
-
-  /* ? Что это за цвета? */
-  --atom-gray-1: var(--gray);
-  --atom-gray-2: var(--gray);
-  --atom-red:    var(--red);
-  --atom-green:  var(--green);
-  --atom-blue:   var(--blue);
-  --atom-purple: var(--purple);
-  --atom-aqua:   var(--cyan);
-  --atom-yellow: var(--yellow);
-  --atom-orange: var(--orange);
-}
-
-/* Хлебные крошки (видны при наведении) */
 .view-header .view-header-title-container {
   opacity: 0;
   transition: opacity 200ms ease;
@@ -425,22 +287,14 @@ body.theme-light.is-mobile {
 .view-header:hover .view-header-title-container {
   opacity: 1;
 }
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
 
-
-
-/* Шрифт тега */
-.markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta,
-.markdown-source-view.mod-cm5 .cm-hashtag.cm-meta {
-  font-family: var(--font-text-theme);
-}
-
-
-
-
-/* Цитата */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Ц И Т А Т Ы
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 body:not(.default-font-color) .markdown-preview-view blockquote,
 body:not(.default-font-color) span.cm-quote.cm-quote-1 {
   color: var(--quote-color);
@@ -451,59 +305,7 @@ body .markdown-preview-view blockquote {
 body .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   background-color: var(--quote-background);
 }
-
-
-
-
-/* Bold font */
-body:not(.default-font-color) strong,
-body:not(.default-font-color) span:not(.cm-highlight).cm-strong {
-  color: var(--strong-color);
-}
-
-/* Italics */
-body:not(.default-font-color) em,
-body:not(.default-font-color) span:not(.cm-highlight).cm-em {
-  color: var(--em-color);
-}
-
-/* Styled highlights */
-body:not(.default-font-color) mark strong,
-body:not(.default-font-color) mark em {
-  color: var(--text-normal);
-}
-
-
-
-
-/* Fancy highlight */
-body.fancy-highlight span.cm-highlight,
-body.fancy-highlight .markdown-preview-view mark,
-body.fancy-highlight .markdown-rendered mark,
-body.fancy-highlight span.search-result-file-matched-text {
-  background-image: linear-gradient(
-    0deg,
-    var(--highlight-background-color-underline) 0%,
-    var(--highlight-background-color-underline) 2px,
-    var(--highlight-background-color--active) 2px,
-    var(--highlight-background-color--active) 100%
-  ) !important;
-  background-color: var(--highlight-text-color--active) !important;
-}
-
-
-
-
-/* Markdown formatting */
-.cm-formatting-strong,
-.cm-formatting-em,
-.cm-formatting.cm-formatting-quote {
-  color: var(--text-formatted) !important;
-  font-weight: var(--normal-weight);
-  letter-spacing: -0.02em;
-}
-
-
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
@@ -513,8 +315,6 @@ body.fancy-highlight span.search-result-file-matched-text {
  * Основа — тема Minimal:
  * https://minimal.guide/Block+types/Checklists#Checkbox+styling
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-/* Обычные галочки закрытых задач */
 .markdown-preview-view ul > li.task-list-item.is-checked,
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="+"],
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
@@ -523,7 +323,6 @@ body.fancy-highlight span.search-result-file-matched-text {
   text-decoration: none;
   color: var(--text-faint);
 }
-
 input[data-task='!']:checked,
 input[data-task='*']:checked,
 input[data-task='-']:checked,
@@ -795,7 +594,6 @@ li[data-task="D"] > p > input:checked {
   color: var(--light);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M3.25 1A2.25 2.25 0 0 1 4 5.372v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.251 2.251 0 0 1 3.25 1Zm9.5 14a2.25 2.25 0 1 1 0-4.5 2.25 2.25 0 0 1 0 4.5ZM2.5 3.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0ZM3.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM14 7.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Zm0-4.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z'%3E%3C/path%3E%3C/svg%3E");
 }
-
 body:not(.tasks) li[data-task=">"].task-list-item.is-checked,
 body:not(.tasks) li[data-task="<"].task-list-item.is-checked,
 body:not(.tasks) li[data-task="b"].task-list-item.is-checked,
@@ -819,17 +617,7 @@ body:not(.tasks) li[data-task="P"].task-list-item.is-checked,
 body:not(.tasks) li[data-task="D"].task-list-item.is-checked {
   color: var(--text-normal);
 }
-
-
-
-
-
-
-
-
-
-
-
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
@@ -840,76 +628,78 @@ body:not(.tasks) li[data-task="D"].task-list-item.is-checked {
 img {
   border-radius: var(--radius-m);
 }
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * I N L I N E   C O D E   ( ` )
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.markdown-rendered code:not(pre code),
+.markdown-preview-view code:not(pre code),
+.cm-s-obsidian span.cm-inline-code {
+  background-color: var(--green) !important;
+  color: var(--white) !important;
+  padding: 0.2rem 0.8rem;
 
+  corner-shape: squircle;
+  border-radius: var(--radius-xl);
 
-.theme-dark .modal-container .suggestion-item.is-selected {
-  background: var(--color-accent);
+  line-height: 1rem;
+  letter-spacing: 0.04rem;
+  font-family: var(--font-monospace-theme);
 }
-
-/* Focus active line */
-body.active-line .cm-active:not(.HyperMD-header, .HyperMD-codeblock)::before,
-body.active-line .cm-active.HyperMD-quote::before {
-  content: "";
-  height: 100%;
-  position: absolute;
-  left: -1.125em;
-  border-left: 3px solid var(--color-accent);
-  border-radius: 10px 0 0 10px;
-  opacity: 0.85;
-}
-
-/* Inline code background (separate from block code) */
-.theme-light .markdown-rendered code:not(pre code),
-.theme-light .markdown-preview-view code:not(pre code) {
-  background-color: var(--code-background-l);
-}
-.theme-dark .markdown-rendered code:not(pre code),
-.theme-dark .markdown-preview-view code:not(pre code) {
-  background-color: var(--code-background-d);
-}
-.theme-light .cm-s-obsidian span.cm-inline-code {
-  background-color: var(--code-background-l);
-}
-.theme-dark .cm-s-obsidian span.cm-inline-code {
-  background-color: var(--code-background-d);
-}
-
-/* Copy button stays fixed at top-right while code scrolls horizontally */
-.markdown-reading-view .el-pre {
-  position: relative;
-}
-.markdown-reading-view .el-pre pre {
-  position: static;
-  overflow-x: auto;
-  white-space: pre;
-}
-.markdown-reading-view .el-pre pre code {
-  white-space: pre;
-}
-.markdown-reading-view .el-pre .copy-code-button {
-  position: absolute;
-}
-
-/* Code block background (separate from inline code) */
-.theme-light .markdown-preview-view pre:not(.frontmatter) {
-  background-color: var(--code-block-background-l);
-}
-.theme-dark .markdown-preview-view pre:not(.frontmatter) {
-  background-color: var(--code-block-background-d);
-}
-.theme-light .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: var(--code-block-background-l);
-}
-.theme-dark .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: var(--code-block-background-d);
-}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * I N L I N E   П О Д С В Е Т К А   ( == )
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+mark {
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+  padding: 0.2rem 0.8rem;
+
+  corner-shape: squircle;
+  border-radius: var(--radius-xl);
+
+  line-height: 1rem;
+  letter-spacing: 0.04rem;
+  font-family: var(--font-monospace-theme);
+  font-size: medium;
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * I N L I N E   Т Е Г И   ( # )
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ body {
+  --tag-background:   var(--cyan);
+  --tag-color:        var(--white);
+  --tag-radius:       var(--radius-xl);
+  --tag-corner-shape: squircle;
+  --tag-weight:       400;
+  --tag-size:         1rem;
+  --tag-padding-x:    0.8rem;
+  --tag-padding-y:    0.2rem;
+}
+a.tag {
+  line-height: 1rem;
+  letter-spacing: 0.04rem;
+  font-family: var(--font-monospace-theme);
+  font-size: medium;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta,
+.markdown-source-view.mod-cm5 .cm-hashtag.cm-meta {
+  font-family: var(--font-monospace-theme);
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
 
 
 
@@ -918,7 +708,6 @@ body.active-line .cm-active.HyperMD-quote::before {
  * В Ы Н О С К И
  * https://obsidian.md/help/callouts
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 /* Общие настройки отступов */
 .callout {
   border-radius: var(--radius-m);
@@ -940,7 +729,6 @@ body.active-line .cm-active.HyperMD-quote::before {
   margin-left: -0em !important;
   margin-right: 0.5em !important;
 }
-
 /* GitHub-совместимые выноски */
 .callout[data-callout="note"] {
     --callout-color: var(--yellow-rgb);
@@ -967,12 +755,591 @@ body.active-line .cm-active.HyperMD-quote::before {
     --callout-icon: lucide-alert-octagon; 
     border-right-color: var(--orange);
 }
-
 /* Выноска по умолчанию (прозрачный фон) */
 .callout[data-callout="info"] {
     --callout-color: transparent;
     --callout-icon: lucide-book;
     border-right-width: 0;
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * С В Е Т Л А Я   Т Е М А
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.theme-light,
+body.theme-light.is-mobile {
+  color-scheme: light;
+  --highlight-mix-blend-mode: darken;
+  --mono-rgb-0: 255, 255, 255;
+  --mono-rgb-100: 0, 0, 0;
+
+
+  /* Условные цвета темы */
+  --color-red:        var(--red);
+  --color-red-rgb:    var(--red-rgb);
+  --color-orange:     var(--orange);
+  --color-orange-rgb: var(--orange-rgb);
+  --color-yellow:     var(--yellow);
+  --color-yellow-rgb: var(--yellow-rgb);
+  --color-green:      var(--green);
+  --color-green-rgb:  var(--green-rgb);
+  --color-cyan:       var(--cyan);
+  --color-cyan-rgb:   var(--cyan-rgb);
+  --color-blue:       var(--blue);
+  --color-blue-rgb:   var(--blue-rgb);
+  --color-purple:     var(--purple);
+  --color-purple-rgb: var(--purple-rgb);
+  --color-pink:       var(--pink);
+  --color-pink-rgb:   var(--pink-rgb);
+  /* в этом случае совпадают с реальными цветами */
+
+  /* Градиент темы */
+  --color-base-00: var(--g-20);
+  --color-base-05: var(--g-19);
+  --color-base-10: var(--g-18); /* блоки кода по умолчанию */
+  --color-base-20: var(--g-16);
+  --color-base-25: var(--g-15);
+  --color-base-30: var(--g-14); /* линии-разделители */
+  --color-base-35: var(--g-13);
+  --color-base-40: var(--g-12);
+  --color-base-50: var(--g-11);
+  --color-base-60: var(--g-09);
+  --color-base-70: var(--g-07);
+  --color-base-80: var(--g-05);
+  --color-base-90: var(--g-03);
+  --color-base-100: var(--g-01);
+  /* не все цвета градиента палитры сюда вошли */
+
+  --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --color-accent-1: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 2.5%)
+  );
+  --color-accent-2: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 5%)
+  );
+
+  /* Элементы интерфейса */
+  --background-modifier-hover: var(--yellow);
+  --background-secondary:      var(--g-19);
+  --background-secondary-alt:  var(--g-19);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
+  --background-modifier-cover: rgba(220, 220, 220, 0.4);
+  --text-highlight-bg-l: rgba(255, 208, 0, 0.4);
+  --text-highlight-bg: var(--text-highlight-bg-l);
+  --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
+  --input-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.05),
+    0 1px 1.5px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.04),
+    0 0 0 0 transparent;
+  --input-shadow-hover:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.17), 0 2px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 1.5px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.04),
+    0 0 0 0 transparent;
+  --shadow-s:
+    0px 1px 2px rgba(0, 0, 0, 0.028), 0px 3.4px 6.7px rgba(0, 0, 0, 0.042),
+    0px 15px 30px rgba(0, 0, 0, 0.07);
+  --shadow-l:
+    0px 1.8px 7.3px rgba(0, 0, 0, 0.071), 0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
+    0px 30px 90px rgba(0, 0, 0, 0.2);
+
+  /* ? Разные варианты текста */
+  --text-normal:       var(--black);
+  --text-muted:        var(--normal);
+  --text-faint:        var(--light);
+  --text-formatted:    var(--gray);
+  --text-accent:       var(--g-05);
+  --text-accent-hover: var(--g-08);
+
+  /* ? Что-то интерфейсное? */
+  --titlebar-background:         var(--color-base-05);
+  --titlebar-background-focused: var(--color-base-05);
+
+  /* ? Что это за цвета? */
+  --atom-gray-1: var(--gray);
+  --atom-gray-2: var(--gray);
+  --atom-red:    var(--red);
+  --atom-green:  var(--green);
+  --atom-blue:   var(--blue);
+  --atom-purple: var(--purple);
+  --atom-aqua:   var(--cyan);
+  --atom-yellow: var(--yellow);
+  --atom-orange: var(--orange);
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Б Л О К И   К О Д А
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.markdown-rendered pre:has(code[class*="language-"]) {
+  /* background-color: var(--black-rgb) !important; */
+  color: var(--light);
+	padding: 16px 12px;
+  border: 0;
+  border-radius: var(--radius-l);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.markdown-rendered pre:has(code[class*="language-"]) code {
+	color: var(--light);
+  background: transparent;
+  font-size: large;
+  line-height: 1.5rem;
+  font-weight: 100;
+}
+.markdown-rendered pre:has(code[class*="language-"]) code .token.comment     { color: var(--green); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.string      { color: var(--green); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.number      { color: var(--orange); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.constant    { color: var(--orange); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.keyword     { color: var(--yellow); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.function    { color: var(--white); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.operator    { color: var(--white); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.boolean     { color: var(--gray); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.property    { color: var(--orange); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.punctuation { color: var(--white); }
+.markdown-rendered pre:has(code[class*="language-"]) code .token.variable    { color: var(--cyan); }
+
+.markdown-reading-view .el-pre {
+  position: relative;
+}
+.markdown-reading-view .el-pre pre {
+  position: static;
+  overflow-x: auto;
+  white-space: pre;
+}
+.markdown-reading-view .el-pre pre code {
+  white-space: pre;
+}
+.markdown-reading-view .el-pre .copy-code-button {
+  position: absolute;
+}
+.theme-light .cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--black-rgb) !important;
+  color: var(--white) !important;
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Ч И П   ( Т О К Е Н )   Ц В Е Т А
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.token-color {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--token-text);
+    font-family: monospace;
+    background: var(--token-color);
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * М Е Л К И Е   Н А С Т Р О Й К И
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* Прятать метаданные в preview-режиме */
+.markdown-preview-view .metadata-container {
+  display: none !important;
+}
+/* Минимальная ширина первой колонки DataView */
+.table-view-table thead th:nth-child(1),
+.table-view-table tbody td:nth-child(1) {
+  width: 130px;
+  max-width: 130px;
+}
+/* • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • */
+
+
+
+
+
+
+
+
+
+
+
+
+.hblocks-resizable: {
+	background-color: red !important;
+}
+
+/* Target all task list checkboxes in preview mode */
+.hblocks-md-preview .task-list-item-checkbox {
+	margin-bottom: -4px;
+}
+
+
+
+/* Markdown formatting */
+.cm-formatting-strong,
+.cm-formatting-em,
+.cm-formatting.cm-formatting-quote {
+  color: var(--text-formatted) !important;
+  font-weight: var(--normal-weight);
+  letter-spacing: -0.02em;
+}
+
+/* Focus active line */
+body.active-line .cm-active:not(.HyperMD-header, .HyperMD-codeblock)::before,
+body.active-line .cm-active.HyperMD-quote::before {
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: -1.125em;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 10px 0 0 10px;
+  opacity: 0.85;
+}
+
+
+
+/* --------------------- */
+/* Mobile toolbar button */
+/* --------------------- */
+
+/* iOS glass: style button in-place within the glass pill */
+body.is-mobile.is-ios:not(.floating-button-off)
+  .view-actions
+  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
+  color: white;
+  background-color: var(--blue);
+  opacity: 1;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50% !important;
+  box-shadow:
+    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
+    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
+    5px 1.3px 10px rgba(0, 0, 0, 0.035),
+    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
+    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
+    40px 10px 80px rgba(0, 0, 0, 0.07);
+}
+
+/* Non-iOS mobile (Android): floating button at bottom-right */
+body.is-mobile:not(.is-ios):not(.floating-button-off):not(.advanced-toolbar)
+  .view-actions
+  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
+  color: white;
+  background-color: var(--blue);
+  opacity: 1;
+  position: fixed;
+  top: calc(90vh - 110px);
+  /*left: 80vw;*/
+  transform: translate(-40%, 5%);
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 53px;
+  height: 53px;
+  border-radius: 50% !important;
+  box-shadow:
+    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
+    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
+    5px 1.3px 10px rgba(0, 0, 0, 0.035),
+    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
+    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
+    40px 10px 80px rgba(0, 0, 0, 0.07);
+}
+body.is-mobile:not(.is-ios):not(.floating-button-off).advanced-toolbar
+  .view-actions
+  .view-action:not(.mod-bookmark):not([aria-label="More options"]) {
+  color: white;
+  background-color: var(--blue);
+  opacity: 1;
+  position: fixed;
+  top: calc(100vh - 138px);
+  /*left: 80vw;*/
+  transform: translate(-40%, -115%);
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 53px;
+  height: 53px;
+  border-radius: 50% !important;
+  box-shadow:
+    1.1px 0.3px 2.2px rgba(0, 0, 0, 0.02),
+    2.7px 0.7px 5.3px rgba(0, 0, 0, 0.028),
+    5px 1.3px 10px rgba(0, 0, 0, 0.035),
+    8.9px 2.2px 17.9px rgba(0, 0, 0, 0.042),
+    16.7px 4.2px 33.4px rgba(0, 0, 0, 0.05),
+    40px 10px 80px rgba(0, 0, 0, 0.07);
+}
+
+
+
+
+
+
+/* ------------------- */
+/* Progress bars styling. Credit Minimal theme: https://minimal.guide/progress-bars */
+/* Support @kepano - https://www.buymeacoffee.com/kepano */
+/* ------------------- */
+.progress-color {
+  .markdown-rendered progress,
+  .markdown-source-view.is-live-preview progress,
+  .markdown-preview-view progress {
+    &[value^="1"]::-webkit-progress-value,
+    &[value^="2"]::-webkit-progress-value,
+    &[value^="3"]::-webkit-progress-value {
+      background-color: var(--progress-color-1);
+    }
+    &[value^="4"]::-webkit-progress-value,
+    &[value^="5"]::-webkit-progress-value {
+      background-color: var(--progress-color-2);
+    }
+    &[value^="6"]::-webkit-progress-value,
+    &[value^="7"]::-webkit-progress-value {
+      background-color: var(--progress-color-3);
+    }
+    &[value^="8"]::-webkit-progress-value,
+    &[value^="9"]::-webkit-progress-value {
+      background-color: var(--progress-color-4);
+    }
+    &[value="1"]::-webkit-progress-value,
+    &[value="100"]::-webkit-progress-value {
+      background-color: var(--progress-color-5);
+    }
+
+    &[value="0"]::-webkit-progress-value,
+    &[value="2"]::-webkit-progress-value,
+    &[value="3"]::-webkit-progress-value,
+    &[value="4"]::-webkit-progress-value,
+    &[value="5"]::-webkit-progress-value,
+    &[value="6"]::-webkit-progress-value,
+    &[value="7"]::-webkit-progress-value,
+    &[value="8"]::-webkit-progress-value,
+    &[value="9"]::-webkit-progress-value {
+      background-color: var(--progress-color-1);
+    }
+  }
+}
+
+
+
+
+
+/* ---------------  */
+/* Checklist */
+/* --------------- */
+
+.checklist-plugin-main .title {
+  font-size: var(--nav-item-size);
+}
+
+.checklist-plugin-main .container input.search {
+  font-size: var(--font-ui-small);
+}
+
+.checklist-plugin-main .group-header button.collapse,
+.checklist-plugin-main button.toggle {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.checklist-plugin-main .classic .content > p {
+  font-size: var(--font-ui-smaller);
+}
+
+.checklist-plugin-main .toggle .checkbox {
+  border-radius: var(--checkbox-radius) !important;
+}
+
+
+
+
+/* ---------------  */
+/* Kanban */
+/* --------------- */
+
+body:not(.no-kanban-styles) .kanban-plugin {
+  --dot-color: hsl(0 0% 40% / 10%);
+  --dot-spacing: 9px;
+  --dot-size: 1px;
+}
+body:not(.no-kanban-styles) .kanban-plugin__board {
+  background-image: radial-gradient(
+    circle,
+    var(--dot-color) var(--dot-size),
+    transparent var(--dot-size)
+  );
+  border-top: var(--thin-border);
+  background-size: var(--dot-spacing) var(--dot-spacing);
+  background-attachment: local;
+}
+
+body:not(.no-kanban-styles) .kanban-plugin__board > div {
+  margin: 0 auto;
+}
+body:not(.no-kanban-styles) .kanban-plugin__item-form {
+  border-top: none;
+}
+body:not(.no-kanban-styles) .kanban-plugin__lane-header-wrapper {
+  border-bottom: 0;
+}
+body:not(.no-kanban-styles) .kanban-plugin button {
+  box-shadow: none;
+}
+body:not(.no-kanban-styles) .kanban-plugin__item-button-wrapper > button:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+body:not(.no-kanban-styles) .kanban-plugin__item-button-wrapper {
+  border-top: none;
+}
+body:not(.no-kanban-styles) .kanban-plugin__lane {
+  border: 1px solid transparent;
+}
+body:not(.no-kanban-styles) .kanban-plugin__item-content-wrapper {
+  box-shadow: none;
+}
+
+body:not(.no-kanban-styles):not(.is-mobile)
+  .kanban-plugin__grow-wrap
+  > textarea:focus {
+  box-shadow: none;
+}
+body:not(.no-kanban-styles) .kanban-plugin__item-input-actions button,
+body:not(.no-kanban-styles) .kanban-plugin__lane-input-actions button {
+  font-size: var(--font-adaptive-small);
+}
+body:not(.no-kanban-styles)
+  .kanban-plugin__lane-header-wrapper
+  .kanban-plugin__grow-wrap
+  > textarea,
+body:not(.no-kanban-styles)
+  .kanban-plugin__lane-input-wrapper
+  .kanban-plugin__grow-wrap
+  > textarea {
+  background: transparent;
+}
+body .kanban-plugin__item-button-wrapper > button {
+  color: var(--text-muted);
+  font-weight: 400;
+  background: 0 0;
+  min-height: calc(var(--input-height) + 8px);
+}
+body .kanban-plugin__item-form .kanban-plugin__item-input-wrapper {
+  min-height: calc(var(--input-height) + 8px);
+  display: flex;
+  justify-content: center;
+}
+.kanban-plugin__item-input-wrapper textarea {
+  background-color: var(--background-primary);
+}
+.kanban-plugin__lane-items {
+  padding-bottom: 0;
+}
+
+
+/* --------------- */
+/* Todoist */
+/* --------------- */
+
+.todoist-p1 > input[type="checkbox"] {
+  border: 1px solid #ff757f !important;
+  background-color: rgba(255, 117, 127, 0.25) !important;
+}
+.todoist-p1 > input[type="checkbox"]:hover {
+  background-color: rgba(255, 117, 127, 0.5) !important;
+}
+.todoist-p2 > input[type="checkbox"] {
+  border: 1px solid #ffc777 !important;
+  background-color: rgba(255, 199, 119, 0.25) !important;
+}
+.todoist-p2 > input[type="checkbox"]:hover {
+  background-color: rgba(255, 199, 119, 0.5) !important;
+}
+.todoist-p3 > input[type="checkbox"] {
+  border: 1px solid #65bcff !important;
+  background-color: rgba(101, 188, 255, 0.25) !important;
+}
+.todoist-p3 > input[type="checkbox"]:hover {
+  background-color: rgba(101, 188, 255, 0.5) !important;
+}
+.todoist-p4 > input[type="checkbox"] {
+  border: 1px solid #b4c2f0 !important;
+  background-color: rgba(180, 194, 240, 0.25) !important;
+}
+.todoist-p4 > input[type="checkbox"]:hover {
+  background-color: rgba(180, 194, 240, 0.5) !important;
+}
+.task-metadata {
+  font-size: var(--font-todoist-metadata-size);
+  color: #7a88cf;
+  margin-left: unset;
+}
+.task-metadata > * {
+  margin-right: 30px;
+}
+.task-date.task-overdue {
+  color: rgba(255, 152, 164, 0.75) !important;
+}
+.task-calendar-icon,
+.task-project-icon,
+.task-labels-icon {
+  vertical-align: middle;
+  height: 17px;
+  width: 17px;
+}
+.todoist-project .todoist-project {
+  margin-left: 20px;
+}
+.todoist-section {
+  margin-left: 20px;
+}
+.todoist-project .todoist-project-title {
+  font-weight: 700;
+  margin-block-end: 0px;
+}
+.todoist-section .todoist-section-title {
+  font-size: var(--font-todoist-title-size);
+  color: #7a88cf;
+  font-weight: 700;
+  margin-block-end: 0px;
+}
+.todoist-error {
+  border: 1px solid #ff98a4;
+  background-color: rgba(255, 152, 164, 0.05);
+  padding: 1em 1em;
+  margin: 1em 0px;
+}
+.todoist-error p {
+  margin: 0 0 1em 0;
+  font-weight: 600;
+}
+.todoist-error code {
+  background-color: unset !important;
+  padding: unset !important;
+  margin: unset !important;
+}
+.todoist-success {
+  border: 1px solid #c3e88d !important;
+  background-color: rgba(195, 232, 141, 0.05);
+  padding: 1em 1em !important;
+  margin: 1em 0px;
+}
+.todoist-success p {
+  margin: 0;
+  font-weight: 600;
 }
 
 
@@ -982,19 +1349,22 @@ body.active-line .cm-active.HyperMD-quote::before {
 
 
 
+/* Работа с колонками — модуль horizontal */
 
+/* Тени нет */
+.horizontal-block-container {
+	box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+	border-radius: 0 !important;
+	
+}
 
+/* Правые и левые края колонок вплотную к краям общего текста */
+.hblocks-md-preview.markdown-rendered {
+	padding: 0px !important;
+	margin: 0px !important;
+}
 
-
-
-@import "./fancy-code.css";
-@import "./one-dark.css";
-@import "./mobile-toolbar-button.css";
-
-@import "./checkbox.css";
-@import "./progress-bar.css";
-
-/* Плагины */
-@import "./plugin-checklist.css";
-@import "./plugin-kanban.css";
-@import "./plugin-todoist.css";
+/* Расстояние между колонками по горизонтали */
+.hblocks-resizer {
+	margin: 0 4px !important;
+}
